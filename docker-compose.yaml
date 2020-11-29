@@ -24,7 +24,6 @@ services:
             context: .
             dockerfile: DockerfileDash
         container_name: dash_dash
-        command: python app.py
         volumes:
             - .:/code
         ports:
