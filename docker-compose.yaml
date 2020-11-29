@@ -17,6 +17,17 @@ services:
             postgres_network:
                 aliases: 
                     - postgres_host
+    jupyter:
+        container_name: notebook
+        build: 
+            context: .
+            dockerfile: DockerfileJupyter
+        volumes:
+            - ./sql-data/jupyter:/home/jovyan/work
+        depends_on: 
+            - mysql
+        ports:
+            - "8888:8888"
 volumes: 
     pgdata: {}
 networks: 
