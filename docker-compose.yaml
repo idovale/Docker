@@ -3,7 +3,7 @@ services:
     postgres:
         build:
             context: .
-            dockerfile: Dockerfile
+            dockerfile: DockerfilePostgre
         container_name: postgres
         restart: always
         environment: 
@@ -25,7 +25,7 @@ services:
         volumes:
             - ./sql-data/jupyter:/home/jovyan/work
         depends_on: 
-            - mysql
+            - postgres
         ports:
             - "8888:8888"
 volumes: 
@@ -34,4 +34,3 @@ networks:
     postgres_network:
         name: postgres_net
         driver: bridge
-        
