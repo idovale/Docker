@@ -1,35 +1,31 @@
 version: "3.7"
 services:  
-    postgres:
-        build:
-            context: .
-            dockerfile: DockerfilePostgre
-        container_name: postgres
-        restart: always
-        environment: 
-            POSTGRES_DB: postgres
-            POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: 123
-            PGDATA: /var/lib/postgresql/data/pgdata
-        ports: 
-            - 5432:5432
-        volumes: 
-            - pgdata:/var/lib/postgresql/data/pgdata 
-        networks: 
-            postgres_network:
-                aliases: 
-                    - postgres_host
+    mysql:
+        container_name: sql
+        image: mysql
+        volumes:
+            - ./db:/var/lib/mysql
+        ports:
+            - "3306:3306"
+        hostname: R8WA
+        environment:
+            MYSQL_DATABASE: 'database'
+            MYSQL_USER: 'sloth'
+            MYSQL_PASSWORD: 'sloth'
+            MYSQL_ROOT_PASSWORD: 'sloth'
+            MYSQL_ROOT_PASSWORD: 'sloth'
     dash:
         build:
             context: .
             dockerfile: DockerfileDash
-        container_name: dash_dash
+        container_name: dash_server
+        command: python app.py
         volumes:
             - .:/code
         ports:
             - "80:8080"
-        depends_on:
-            - postgres
+        links:
+            - "mysql:mysql"
     jupyter:
         container_name: notebook
         build: 
@@ -38,12 +34,6 @@ services:
         volumes:
             - .:/home/jovyan/aaa
         depends_on: 
-            - postgres
+            - mysql
         ports:
             - "8888:8888"
-volumes: 
-    pgdata: {}
-networks: 
-    postgres_network:
-        name: postgres_net
-        driver: bridge
