@@ -7,46 +7,46 @@ connection=mysql.connector.connect(host='sql',user='sloth',passwd='sloth')
 cursor=connection.cursor()
 
 cursor.execute("select MES, BAJO_INFLUENCIA from database.reportes")
-mes1=cursor.fetchone()
-mes2=cursor.fetchone()
-mes3=cursor.fetchone()
-mes4=cursor.fetchone()
-mes5=cursor.fetchone()
-mes6=cursor.fetchone()
-mes7=cursor.fetchone()
-mes8=cursor.fetchone()
-mes9=cursor.fetchone()
-mes10=cursor.fetchone()
-mes11=cursor.fetchone()
-mes12=cursor.fetchone()
+enero=cursor.fetchone()
+febrero=cursor.fetchone()
+marzo=cursor.fetchone()
+abril=cursor.fetchone()
+mayo=cursor.fetchone()
+junio=cursor.fetchone()
+julio=cursor.fetchone()
+agosto=cursor.fetchone()
+septiembre=cursor.fetchone()
+octubre=cursor.fetchone()
+noviembre=cursor.fetchone()
+diciembre=cursor.fetchone()
 
 cursor.execute("select MES, HUBO_MUERTO from database.reportes")
-mes1b=cursor.fetchone()
-mes2b=cursor.fetchone()
-mes3b=cursor.fetchone()
-mes4b=cursor.fetchone()
-mes5b=cursor.fetchone()
-mes6b=cursor.fetchone()
-mes7b=cursor.fetchone()
-mes8b=cursor.fetchone()
-mes9b=cursor.fetchone()
-mes10b=cursor.fetchone()
-mes11b=cursor.fetchone()
-mes12b=cursor.fetchone()
+enero1=cursor.fetchone()
+febrero1=cursor.fetchone()
+marzo1=cursor.fetchone()
+abril1=cursor.fetchone()
+mayo1=cursor.fetchone()
+junio1=cursor.fetchone()
+julio1=cursor.fetchone()
+agosto1=cursor.fetchone()
+septiembre1=cursor.fetchone()
+octubre1=cursor.fetchone()
+noviembre1=cursor.fetchone()
+diciembre1=cursor.fetchone()
 
 cursor.execute("select MES, USO_DE_ARMAS from database.reportes")
-mes1c=cursor.fetchone()
-mes2c=cursor.fetchone()
-mes3c=cursor.fetchone()
-mes4c=cursor.fetchone()
-mes5c=cursor.fetchone()
-mes6c=cursor.fetchone()
-mes7c=cursor.fetchone()
-mes8c=cursor.fetchone()
-mes9c=cursor.fetchone()
-mes10c=cursor.fetchone()
-mes11c=cursor.fetchone()
-mes12c=cursor.fetchone()
+enero2=cursor.fetchone()
+febrero2=cursor.fetchone()
+marzo2=cursor.fetchone()
+abril2=cursor.fetchone()
+mayo2=cursor.fetchone()
+junio2=cursor.fetchone()
+julio2=cursor.fetchone()
+agosto2=cursor.fetchone()
+septiembre2=cursor.fetchone()
+octubre2=cursor.fetchone()
+noviembre2=cursor.fetchone()
+diciembre2=cursor.fetchone()
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
@@ -59,7 +59,7 @@ app.layout = html.Div(children=[
     id='influencia',
     figure={
       'data': [
-        {'x': [format(mes1[0]), format(mes2[0]), format(mes3[0]), format(mes4[0]), format(mes5[0]), format(mes6[0]), format(mes7[0]), format(mes8[0]), format(mes9[0]), format(mes10[0]), format(mes11[0]), format(mes12[0])], 'y': [format(mes1[1]), format(mes2[1]), format(mes3[1]), format(mes4[1]), format(mes5[1]), format(mes6[1]), format(mes7[1]), format(mes8[1]), format(mes9[1]), format(mes10[1]), format(mes11[1]), format(mes12[1])], 'type': 'bar', 'name': 'SF'},
+        {'x': [format(enero[0]), format(febrero[0]), format(marzo[0]), format(abril[0]), format(mayo[0]), format(junio[0]), format(julio[0]), format(agosto[0]), format(septiembre[0]), format(octubre[0]), format(noviembre[0]), format(diciembre[0])], 'y': [format(enero[1]), format(febrero[1]), format(marzo[1]), format(abril[1]), format(mayo[1]), format(junio[1]), format(julio[1]), format(agosto[1]), format(septiembre[1]), format(octubre[1]), format(noviembre[1]), format(diciembre[1])], 'type': 'bar', 'name': 'SF'},
       ],
       'layout': {
         'title': 'Casos con agresores bajo influencia'
@@ -70,7 +70,7 @@ app.layout = html.Div(children=[
     id='muertos',
     figure={
       'data': [
-        {'x': [format(mes1b[0]), format(mes2b[0]), format(mes3b[0]), format(mes4b[0]), format(mes5b[0]), format(mes6b[0]), format(mes7b[0]), format(mes8b[0]), format(mes9b[0]), format(mes10b[0]), format(mes11b[0]), format(mes12b[0])], 'y': [format(mes1b[1]), format(mes2b[1]), format(mes3b[1]), format(mes4b[1]), format(mes5b[1]), format(mes6b[1]), format(mes7b[1]), format(mes8b[1]), format(mes9b[1]), format(mes10b[1]), format(mes11b[1]), format(mes12b[1])], 'type': 'bar', 'name': 'SF'},
+        {'x': [format(enero1[0]), format(febrero1[0]), format(marzo1[0]), format(abril1[0]), format(mayo1[0]), format(junio1[0]), format(julio1[0]), format(agosto1[0]), format(septiembre1[0]), format(octubre1[0]), format(noviembre1[0]), format(diciembre1[0])], 'y': [format(enero1[1]), format(febrero1[1]), format(marzo1[1]), format(abril1[1]), format(mayo1[1]), format(junio1[1]), format(julio1[1]), format(agosto1[1]), format(septiembre1[1]), format(octubre1[1]), format(noviembre1[1]), format(diciembre1[1])], 'type': 'bar', 'name': 'SF'},
       ],
       'layout': {
         'title': 'Casos con muertos'
@@ -81,7 +81,7 @@ app.layout = html.Div(children=[
     id='armas',
     figure={
       'data': [
-        {'x': [format(mes1c[0]), format(mes2c[0]), format(mes3c[0]), format(mes4c[0]), format(mes5c[0]), format(mes6c[0]), format(mes7c[0]), format(mes8c[0]), format(mes9c[0]), format(mes10c[0]), format(mes11c[0]), format(mes12c[0])], 'y': [format(mes1c[1]), format(mes2c[1]), format(mes3c[1]), format(mes4c[1]), format(mes5c[1]), format(mes6c[1]), format(mes7c[1]), format(mes8c[1]), format(mes9c[1]), format(mes10c[1]), format(mes11c[1]), format(mes12c[1])], 'type': 'bar', 'name': 'SF'},
+        {'x': [format(enero2[0]), format(febrero2[0]), format(marzo2[0]), format(abril2[0]), format(mayo2[0]), format(junio2[0]), format(julio2[0]), format(agosto2[0]), format(septiembre2[0]), format(octubre2[0]), format(noviembre2[0]), format(diciembre2[0])], 'y': [format(enero2[1]), format(febrero2[1]), format(marzo2[1]), format(abril2[1]), format(mayo2[1]), format(junio2[1]), format(julio2[1]), format(agosto2[1]), format(septiembre2[1]), format(octubre2[1]), format(noviembre2[1]), format(diciembre2[1])], 'type': 'bar', 'name': 'SF'},
       ],
       'layout': {
         'title': 'Casos con armas'
