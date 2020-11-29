@@ -7,6 +7,8 @@ services:
         container_name: postgres
         restart: always
         environment: 
+            POSTGRES_DB: postgres
+            POSTGRES_USER: postgres
             POSTGRES_PASSWORD: 123
             PGDATA: /var/lib/postgresql/data/pgdata
         ports: 
@@ -17,6 +19,18 @@ services:
             postgres_network:
                 aliases: 
                     - postgres_host
+    dash:
+        build:
+            context: .
+            dockerfile: DockerfileDash
+        container_name: dash_dash
+        command: python app.py
+        volumes:
+            - .:/code
+        ports:
+            - "80:8080"
+        depends_on:
+            - postgres
     jupyter:
         container_name: notebook
         build: 
