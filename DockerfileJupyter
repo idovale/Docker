@@ -1,1 +1,3 @@
 FROM idovale/docker:notebook
+
+RUN pip install jupyter-dash
