@@ -9,7 +9,7 @@ services:
             - "3306:3306"
         hostname: R8WA
         restart: always
-        command: --lower_case_table_names=2
+        command: --lower_case_table_names=1
         environment:
             MYSQL_DATABASE: 'database'
             MYSQL_USER: 'sloth'
